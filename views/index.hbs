@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Order Form</title>
+  <link rel="stylesheet" href="/styles/style.css">
+</head>
+<body>
+
+  <h1>Order Form</h1>
+
+  <form action="/submit" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br><br>
+    
+    <label for="address">Address:</label>
+    <input type="text" id="address" name="address" required><br><br>
+    
+    <label for="quantity">Quantity:</label>
+    <input type="number" id="quantity" name="quantity" required><br><br>
+    
+    <label for="price">Price:</label>
+    <input type="number" id="price" name="price" required><br><br>
+    
+    <label for="deliveryCharge">Delivery Charge:</label>
+    <input type="number" id="deliveryCharge" name="deliveryCharge" required><br><br>
+    
+    <input type="submit" value="Submit">
+  </form>
+
+  <table>
+    <caption>Order Summary</caption>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Delivery Charge</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each deliverymodels}}
+      <tr>
+        <td>{{this.names}}</td>
+        <td>{{this.addresss}}</td>
+        <td>{{this.quantitys}}</td>
+        <td>{{this.prices}}</td>
+        <td>{{this.deliveryCharges}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+  <!-- Include Handlebars script -->
+  <script src="https://cdn.jsdelivr.net/npm/handlebars/dist/handlebars.min.js"></script>
+  <!-- Your custom JavaScript file -->
+  <script src="app.js"></script>
+</body>
+</html>
